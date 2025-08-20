@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: aqua;
+  padding-bottom: 10px;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#show-completed {
+  justify-content: center;
+  align-items: center;
+}
+
+#task-input {
+  justify-content: center;
+  align-items: center;
+}
+
+#delete-btn {
+  background-color: red;
+}
+
+#edit-button {
+  background-color: greenyellow;
+}
