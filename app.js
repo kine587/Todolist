@@ -30,6 +30,7 @@ taskForm.addEventListener("submit", (e) => {
   }
 
   tasks.push({
+    id: Date.now(),
     timestamp: new Date(),
     description: userInput,
     complete: false,
@@ -46,7 +47,7 @@ const deleteTaskBtn = (task) => {
 
   //event function
   deleteBtn.addEventListener("click", () => {
-    const taskIndex = task.indexOff(task);
+    const taskIndex = tasks.findIndex((t) => t.id === task.id);
     if (taskIndex > -1) {
       tasks.splice(taskIndex, 1);
     }
@@ -104,7 +105,7 @@ const buildPage = (tasks) => {
       descriptionElement,
       completeTaskInput(task),
       editTaskBtn(task, descriptionElement),
-      deleteTaskBtn(tasks)
+      deleteTaskBtn(task)
     );
 
     listContainer.append(taskContainer);
@@ -122,8 +123,6 @@ const renderPage = () => {
   if (storedTasks) {
     tasks = JSON.parse(storedTasks);
   }
-
-  // add some filters a-z newest to oladest
 
   buildPage(filterArray(tasks));
 };
